@@ -50,27 +50,19 @@ function rndText(n) {
 const MIN_2 = 8;
 const MAX_2 = 18;
 console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
-console.log(rndText(rndNum(MIN_2, MAX_2)));
+
+
+function rndNumArr(min, max, n) {
+    const result = [];
+    for (let i = 0; i < n; i++) {
+        const num = rndNum(min, max);
+        result.push(num);
+    }
+
+    console.log(result);
+}
+
+const MIN_3 = 10;
+const MAX_3 = 1000;
+const LENGTH_ARR = 10;
+rndNumArr(MIN_3, MAX_3, LENGTH_ARR);
