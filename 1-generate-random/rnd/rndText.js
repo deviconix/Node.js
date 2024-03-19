@@ -1,5 +1,5 @@
 function rndText(n) {
-    console.log('---------------------------');
+    //console.log('---------------------------');
     const SEQUENCE_NUM = '0123456789';
     const SEQUENCE_LITERY_SMALL = 'qwertyuiopasdfghjklzxcvbnm';
     const SEQUENCE_LITERY_BIG = 'QWERTYUIOPASDFGHJKLZXCVBNM';
