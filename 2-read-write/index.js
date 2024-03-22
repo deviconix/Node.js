@@ -1,5 +1,18 @@
-function saveData(pathJSON, folderSave, isRewrite) {
+import fs from 'fs';
+import path from 'path';
+
+const parsingData = pathJSON => {
+    // check path
+
+    // true
+    const text = '';
+    const arr = JSON.parse(text);
+    // return 
+}
+
+const saveData = (pathJSON, folderSave, isRewrite) => {
     // arr=parsingData( pathJSON):array<Object> 
+    const arr = parsingData(pathJSON);
 
     /* arr.foreach(index=>{
     
