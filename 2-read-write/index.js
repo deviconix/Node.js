@@ -1,28 +1,9 @@
+import { saveData } from './app/app.js'
 
-
-
+// setup
+const pathJSONLocal = 'data/2-read-write-users.json';
+const pathSaveLocal = 'data/out';
+const rewrite = false;
 
 // main
-
-const pathJSON = 'data/fas/afa/fasfas/index.txt';
-
-import { checkPath } from './libs/path/index.js';
-//work import { fsAccess } from './libs/path/fsAccess.js';
-
-//const a = checkPath(pathJSON);
-const a = checkPath(pathJSON);
-console.log(a);
-
-const app = new App();
-app.setConfig({ dataTxt, savePath, rewrite=false });
-app.makeCards();
-app.viewList();
-app.viewCard(id);
-app.saveList();
-
-app.saveData();
-
-// commands
-app.run({
-    'gg'
-});
+const app = saveData(pathJSON, pathSaveLocal, rewrite);
