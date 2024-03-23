@@ -1,16 +1,20 @@
+import { createPathJoin } from '../libs/path/index.js';
+import { readFileSync } from '../app/files/index.js'
 const parsingData = pathJSON => {
     // check path
+    const text = readFileSync(pathJSON);
 
     // true
-    const text = '[]';
     const arr = JSON.parse(text);
-    // return 
+    return arr;
 }
 
-const saveData = (pathJSON, folderSave, isRewrite) => {
+export const saveData = (pathJSON, folderSave, isRewrite) => {
     // arr=parsingData( pathJSON):array<Object> 
-    const arr = parsingData(pathJSON);
-
+    const fullPathJson = createPathJoin(pathJSON);
+    console.log(fullPathJson)
+    const arr = parsingData(fullPathJson);
+    console.log(arr)
     /* arr.foreach(index=>{
     
     })

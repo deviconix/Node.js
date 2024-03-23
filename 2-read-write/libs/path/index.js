@@ -3,11 +3,13 @@ import { checkFile } from './checkFile.js';
 import { checkPath } from './checkPath.js';
 import { createNotExistsFolderInPath } from './createNotExistsFolderInPath.js';
 import { createPathJoin } from './createPathJoin.js';
+import { rootDirName } from './rootDirName.js';
 
 export {
     fsAccess,
     checkFile,
     checkPath,
     createNotExistsFolderInPath,
-    createPathJoin
+    createPathJoin,
+    rootDirName
 }
