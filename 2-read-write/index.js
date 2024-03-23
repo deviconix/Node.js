@@ -1,9 +1,9 @@
 import { saveData } from './app/app.js'
 
 // setup
-const pathJSONLocal = 'data/2-read-write-users.json';
-const pathSaveLocal = 'data/out';
-const rewrite = false;
+const PATH_JSON_LOCAL = 'data/2-read-write-users.json';
+const PATH_SAVE_LOCAL = 'data/out';
+const FLAG_REWRITE = false;
 
 // main
-const app = saveData(pathJSON, pathSaveLocal, rewrite);
+const app = saveData(PATH_JSON_LOCAL, PATH_SAVE_LOCAL, FLAG_REWRITE);
