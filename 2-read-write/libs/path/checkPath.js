@@ -1,7 +1,8 @@
 import path from 'path';
-import { fsAccess } from './fsAccess';
 
-export const chekPath = (pathfile) => {
+import { fsAccess } from './fsAccess.js';
+
+export const checkPath = (pathfile) => {
     // get base
     const pathfolders = path.dirname(pathfile);
     //console.log('template=', pathfolders);

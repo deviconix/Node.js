@@ -1,13 +1,13 @@
-import { fsAccess } from './fsAccess';
-import { checkFile } from './checkFile';
-import { chekPath } from './chekPath';
-import { createNotExistsFolderInPath } from './createNotExistsFolderInPath';
-import { createPathJoin } from './createPathJoin';
+import { fsAccess } from './fsAccess.js';
+import { checkFile } from './checkFile.js';
+import { checkPath } from './checkPath.js';
+import { createNotExistsFolderInPath } from './createNotExistsFolderInPath.js';
+import { createPathJoin } from './createPathJoin.js';
 
-export const path = {
+export {
     fsAccess,
     checkFile,
-    chekPath,
+    checkPath,
     createNotExistsFolderInPath,
     createPathJoin
 }
