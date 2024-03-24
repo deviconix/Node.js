@@ -8,6 +8,12 @@ export function createNotExistsFolderInPath(filePath) {
 
     if (!fs.existsSync(dirname)) {
         // created not exists folder
-        fs.mkdirSync(dirname, { recursive: true });
+        try {
+            fs.mkdirSync(dirname, { recursive: true });
+            return true;
+        } catch (e) {
+            console.log(e);
+            return false;
+        }
     }
 }
