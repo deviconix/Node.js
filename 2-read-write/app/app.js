@@ -1,7 +1,11 @@
-import { createPathJoin } from '../libs/path/index.js';
+import { createPathJoin, checkFile } from '../libs/path/index.js';
 import { readFileSync } from '../app/files/index.js'
+import { factoryCard } from './factory/factoryCard.js'
 const parsingData = pathJSON => {
     // check path
+
+    if (!checkFile(pathJSON)) return false
+
     const text = readFileSync(pathJSON);
 
     // true
@@ -12,9 +16,22 @@ const parsingData = pathJSON => {
 export const saveData = (pathJSON, folderSave, isRewrite) => {
     // arr=parsingData( pathJSON):array<Object> 
     const fullPathJson = createPathJoin(pathJSON);
-    console.log(fullPathJson)
+    //console.log(fullPathJson)
     const arr = parsingData(fullPathJson);
-    console.log(arr)
+
+    // break err path json
+    if (!arr) { console.log(`App - break. Error path or fileName : root/${pathJSON}`); return }
+
+    const listsCard = [];
+    arr.forEach(element => {
+        const item = factoryCard(element);
+        listsCard.push(item);
+    });
+
+    console.log(listsCard[0])
+    console.log(listsCard[2])
+    console.log(listsCard[5].getView())
+    console.log(listsCard[5].getFileName())
     /* arr.foreach(index=>{
     
     })
