@@ -1,6 +1,6 @@
-import { scenarioCreatePathSaveForCards } from './scenarioCreatePathSaveForCards.js';
+import { saveData } from './scenarioSaveData.js';
 
 
 export {
-    scenarioCreatePathSaveForCards,
+    saveData,
 }
