@@ -28,10 +28,20 @@ export const saveData = (pathJSON, folderSave, isRewrite) => {
         listsCard.push(item);
     });
 
-    console.log(listsCard[0])
-    console.log(listsCard[2])
-    console.log(listsCard[5].getView())
-    console.log(listsCard[5].getFileName())
+
+    listsCard.forEach(item => {
+        console.log('-----------------------------');
+        const pathSavetItem = item.getFileName();
+        const dataItem = item.getView();
+        console.log(pathSavetItem);
+        console.log('data:');
+        console.log(dataItem);
+    })
+    // console.log('-----------------------------');
+    // console.log(listsCard[5].getFileName());
+    // console.log('data:');
+    // console.log(listsCard[5].getView());
+
     /* arr.foreach(index=>{
     
     })
