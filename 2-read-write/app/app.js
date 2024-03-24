@@ -1,6 +1,8 @@
-import { createPathJoin, checkFile } from '../libs/path/index.js';
+import { createNotExistsFolderInPath, createPathJoin, checkFile } from '../libs/path/index.js';
 import { readFileSync } from '../app/files/index.js'
 import { factoryCard } from './factory/factoryCard.js'
+import fs from 'fs'
+
 const parsingData = pathJSON => {
     // check path
 
@@ -14,10 +16,25 @@ const parsingData = pathJSON => {
 }
 
 export const saveData = (pathJSON, folderSave, isRewrite) => {
+    const PATH_CARD_SAVE = createPathJoin(folderSave);
+    const isFolderSave = createNotExistsFolderInPath(PATH_CARD_SAVE);
+    console.log(folderSave);
+    console.log(PATH_CARD_SAVE);
+    console.log(isFolderSave);
+
+    process.exit(1)
+    // getData
+    // getListsCards
+    // saveLists
+    // viewLists
+
+    //-- вынести в отдельный сцкнарий getDataFromJSONfile(path) min information
     // arr=parsingData( pathJSON):array<Object> 
     const fullPathJson = createPathJoin(pathJSON);
     //console.log(fullPathJson)
     const arr = parsingData(fullPathJson);
+    //----------
+
 
     // break err path json
     if (!arr) { console.log(`App - break. Error path or fileName : root/${pathJSON}`); return }
@@ -28,19 +45,20 @@ export const saveData = (pathJSON, folderSave, isRewrite) => {
         listsCard.push(item);
     });
 
-
+    //scenario view console 
     listsCard.forEach(item => {
-        console.log('-----------------------------');
         const pathSavetItem = item.getFileName();
         const dataItem = item.getView();
+
+        // if view true
+        console.log('-----------------------------');
         console.log(pathSavetItem);
         console.log('data:');
         console.log(dataItem);
+
+        // save to file
     })
-    // console.log('-----------------------------');
-    // console.log(listsCard[5].getFileName());
-    // console.log('data:');
-    // console.log(listsCard[5].getView());
+
 
     /* arr.foreach(index=>{
     

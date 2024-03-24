@@ -17,6 +17,7 @@ export function createNotExistsFolderInPath(filePath) {
     // console.log(dirname);
     // console.log(path.parse(filePath));
 
+    // try catch not use ?
     if (!fs.existsSync(dirname)) {
         // created not exists folder
         try {
