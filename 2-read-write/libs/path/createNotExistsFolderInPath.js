@@ -2,9 +2,20 @@ import path from 'path';
 import fs from 'fs';
 
 export function createNotExistsFolderInPath(filePath) {
-    // console.log('start createAbsolutePath()');
-    // get dirname
+    /**
+     * if not file.ext in path then add test.txt 
+     * for get path.dir
+     */
+
+    if (!path.extname(filePath)) {
+        filePath = path.join(filePath, 'test.txt');
+    }
+
     const dirname = path.dirname(filePath);
+
+    // console.log(filePath);
+    // console.log(dirname);
+    // console.log(path.parse(filePath));
 
     if (!fs.existsSync(dirname)) {
         // created not exists folder
@@ -15,5 +26,7 @@ export function createNotExistsFolderInPath(filePath) {
             console.log(e);
             return false;
         }
+    } else {
+        return 0
     }
 }
