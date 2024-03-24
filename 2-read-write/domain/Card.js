@@ -52,8 +52,9 @@ export class Card {
 
         // distruckt name soname
         const names = name.split(' ');
-        const lastName = names[names.length - 1];
-        const firstName = names[names.length - 2];
+        const firstName = this.getName();
+        const lastName = this.getSurname();
+
         let template = '';
         template += `Name : ${firstName}\n`;
         template += `Surname : ${lastName}\n`;
@@ -61,7 +62,6 @@ export class Card {
         template += `ZipCode : ${zipcode}\n`;
         template += `City : ${city}\n`;
         template += `Phone : ${phone}`;
-
 
         this.view = template;
     }
