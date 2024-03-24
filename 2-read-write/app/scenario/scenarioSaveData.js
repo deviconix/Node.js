@@ -4,30 +4,15 @@ import { factoryCard } from '../factory/factoryCard.js'
 
 import { commandGetDataFromJSONfile, commandCreatePathSaveForCards } from '../command/index.js'//scenario->command
 
-const parsingData = pathJSON => {
-    // check path
-
-    if (!checkFile(pathJSON)) return false
-
-    const text = readFileSync(pathJSON);
-
-    // true
-    const arr = JSON.parse(text);
-    return arr;
-}
-
 // есть сценарий
 export const saveData = (localPathJSON, localFolderSave, isRewrite) => {
-    // сначала получить данные из json а потом создавать папку для сохранения
     // COMMAND 1
     // get data from file
-
-    // const data = commandGetDataFromJSONfile(localPathJSON);
-    // // commandCheck(data,'err path');
-    // if (!data) { return console.log('Err path or data JSON file'); }
+    const data = commandGetDataFromJSONfile(localPathJSON);
+    // commandCheck(data,'err path');
+    if (!data) { return console.log('Err path or data JSON file'); }
     // console.log(data);
-
-    // process.exit(1)
+    //    process.exit(1)
 
 
     // COMMAND 2
@@ -52,12 +37,7 @@ export const saveData = (localPathJSON, localFolderSave, isRewrite) => {
     // viewLists
 
 
-    // COMMAND 2
-    //-- вынести в отдельный сцкнарий getDataFromJSONfile(path) min information
-    // arr=parsingData( pathJSON):array<Object> 
-    const fullPathJson = createPathJoin(pathJSON);
-    //console.log(fullPathJson)
-    const arr = parsingData(fullPathJson);
+
     //----------
 
 
