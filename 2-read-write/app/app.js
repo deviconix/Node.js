@@ -1,7 +1,7 @@
 import { createNotExistsFolderInPath, createPathJoin, checkFile } from '../libs/path/index.js';
 import { readFileSync } from '../app/files/index.js'
 import { factoryCard } from './factory/factoryCard.js'
-import fs from 'fs'
+import { scenarioCreatePathSaveForCards } from './scenario/index.js'//scenario->command
 
 const parsingData = pathJSON => {
     // check path
@@ -15,19 +15,35 @@ const parsingData = pathJSON => {
     return arr;
 }
 
+// есть сценарий
 export const saveData = (pathJSON, folderSave, isRewrite) => {
+    // сначала получить данные из json а потом создавать папку для сохранения
+
+    // SCENARIO 1
+    const isCreateFolder = scenarioCreatePathSaveForCards(folderSave);
+
+    // scenarioRun(name,params,'err mess');
+    // checkScenario(bool,'err mess');
+    if (!isCreateFolder) { return 'not create path'; }
+
+    // вынести в отдельный сценарий
+    //put it in a separate script createSavePath (global for cardsSave)
     const PATH_CARD_SAVE = createPathJoin(folderSave);
     const isFolderSave = createNotExistsFolderInPath(PATH_CARD_SAVE);
-    console.log(folderSave);
-    console.log(PATH_CARD_SAVE);
-    console.log(isFolderSave);
 
-    process.exit(1)
+
+    // console.log(folderSave);
+    // console.log(PATH_CARD_SAVE);
+    // console.log(isFolderSave);
+
+    //process.exit(1)
     // getData
     // getListsCards
     // saveLists
     // viewLists
 
+
+    // SCENARIO 2
     //-- вынести в отдельный сцкнарий getDataFromJSONfile(path) min information
     // arr=parsingData( pathJSON):array<Object> 
     const fullPathJson = createPathJoin(pathJSON);
