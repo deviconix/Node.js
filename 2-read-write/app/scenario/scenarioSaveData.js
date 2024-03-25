@@ -1,8 +1,8 @@
 import { createNotExistsFolderInPath, createPathJoin, checkFile } from '../../libs/path/index.js';
 import { readFileSync } from '../files/index.js'
 import { factoryCard } from '../factory/factoryCard.js'
-
-import { commandGetDataFromJSONfile, commandCreatePathSaveForCards } from '../command/index.js'//scenario->command
+import { emitArr } from '../../libs/emmiter/emitArr.js'
+import { commandGetDataFromJSONfile, commandCreatePathSaveForCards, commandCreateListCards } from '../command/index.js'//scenario->command
 
 // есть сценарий
 export const saveData = (localPathJSON, localFolderSave, isRewrite) => {
@@ -20,7 +20,23 @@ export const saveData = (localPathJSON, localFolderSave, isRewrite) => {
     // scenarioRun({name,params,'err mess','ok mess'});
     // checkScenario(bool,'err mess');
     if (!dataPathSave) { return console.log('not create path'); }
-    console.log(dataPathSave);
+    //+console.log(dataPathSave);
+
+
+    // command 3
+    // create listCards
+    const lists = commandCreateListCards(data, factoryCard);
+    if (!lists) { return console.log('not create lists'); }
+    // console.log(lists);
+
+
+    // commands 4
+    // emit view
+    emitArr(lists, (elem) => {
+        console.log('-----------------');
+        console.log('fileName :', elem.getFileName());
+        console.log(elem.getView());
+    });
 
     process.exit(1)
 
