@@ -1,30 +1,25 @@
 import { commandGetDataFromJSONfile, commandCreatePathSaveForCards, commandCreateListCards } from '../command/index.js';//scenario->command
 import { factoryCard } from '../factory/factoryCard.js';
-import { exitScenario } from '../helper/exitScenario.js'
+import { checkResultScenario } from '../helper/checkResultScenario.js'
 
 export const scenarioCreateListCards = (param) => {
-    const { localPathJSON, localFolderSave } = param;
-    // COMMAND 1
-    // get data from file
-    const data = commandGetDataFromJSONfile(localPathJSON);
-    // commandCheck(data,'err path');
-    if (!data) { console.log('Err path or data JSON file'); return } // exitErr('err log')
-    // console.log(data);
-    //    process.exit(1)
 
+    const { localPathJSON, localFolderSave } = param;
+
+    // COMMAND 1
+    // parsing json file
+    const data = commandGetDataFromJSONfile(localPathJSON);
+    checkResultScenario(data, 'Err path or data JSON file');
 
     // COMMAND 2
+    // create path save
     const dataPathSave = commandCreatePathSaveForCards(localFolderSave);
-    // scenarioRun({name,params,'err mess','ok mess'});
-    // checkScenario(bool,'err mess');
-    if (!dataPathSave) { console.log('not create path'); return }
-    //+console.log(dataPathSave);
+    checkResultScenario(dataPathSave, 'Not create path');
 
-
-    // command 3
+    // COMMAND 3
     // create listCards
     const lists = commandCreateListCards(data, factoryCard);
-    if (!lists) { console.log('not create lists'); return }
-    // console.log(lists);
-    return lists
+    checkResultScenario(lists, 'Not create lists');
+
+    return lists;
 }

@@ -6,4 +6,6 @@ const PATH_SAVE_LOCAL = 'data/out';
 const FLAG_REWRITE = false;
 
 // main
-const scenarioSaveData = saveData(PATH_JSON_LOCAL, PATH_SAVE_LOCAL, FLAG_REWRITE);
+//const scenarioSaveData = 
+
+saveData(PATH_JSON_LOCAL, PATH_SAVE_LOCAL, FLAG_REWRITE);

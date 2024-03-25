@@ -1,6 +1,8 @@
-import { exitScenario } from './exitScenario.js'
-export const checkResultScenario = (result, mess) => {
+import { exitScenario } from './exitScenario.js';
+
+
+export const checkResultScenario = (result, err_mess) => {
     if (!result) {
-        exitScenario(mess);
+        exitScenario(err_mess);
     }
 }
