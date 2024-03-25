@@ -13,7 +13,14 @@ const fileManager = new FileManager();
 const log = new Log();
 
 export const saveData = (localPathJSON, localFolderSave, isRewrite) => {
+    //config
 
+    const emmitName = 'rewrite';
+    fileManager.setLocalPathSave(localFolderSave);
+    fileManager.setFlagRewrite(isRewrite);
+    fileManager.on(emmitName, mess => log.add(mess));
+
+    // create List Cards
     const lists = scenarioCreateListCards({ localPathJSON, localFolderSave });
 
     // commands 4
@@ -24,18 +31,14 @@ export const saveData = (localPathJSON, localFolderSave, isRewrite) => {
     //fileManager.on('rewrite',log.add);
     //fileManager.on('rewrite',log.add.bind(log));
 
-    //config
-
-    const emmitName = 'rewrite';
-    fileManager.setLocalPathSave(localFolderSave);
-    fileManager.setFlagRewrite(isRewrite);
-    fileManager.on(emmitName, mess => log.add(mess));
 
 
+    // save cards in file
     emitArr(lists, (elem) => {
-        console.log('-----------------');
-        console.log('fileName :', elem.getFileName());
-        console.log(elem.getView());
+        // view
+        // console.log('-----------------');
+        // console.log('fileName :', elem.getFileName());
+        // console.log(elem.getView());
         //save
         fileManager.save(elem.getFileName(), elem.getView());
     });

@@ -10,7 +10,7 @@ export class Log {
     view() {
         console.log('--------------- LOG START -------------');
         this.datas.forEach(item => {
-            console.log('Warning: file existets and not rewrite', item);
+            console.log(item);
         });
         console.log('---------------- LOG END --------------');
     }

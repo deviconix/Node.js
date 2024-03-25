@@ -38,17 +38,14 @@ export class FileManager extends EventEmmiter {
         // ша (isCheck and !FlagRewrite) emit('rewrite',fileName);return false;
         if (!isRewrite && isFile) {
             // send warning
-            this.emit(this.nameEmmit, pathFile)
+            this.emit(this.nameEmmit, 'Warning: file existets and not rewrite ' + fileName + ' (rewrite=false)')
         } else {
             fs.writeFile(pathFile, data, function (error) {
                 if (error) {  // если ошибка
                     return console.log(error);
                 }
-                console.log(`Файл ${fileName} - успешно записан`);
+                console.log(`Файл ${fileName} - save Ok`);
             });
         }
-
-
-        //console.log(`isFile: ${ isFile } isRewrite: ${ isRewrite }`);
     }
 }
