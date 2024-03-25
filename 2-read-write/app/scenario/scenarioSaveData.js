@@ -1,34 +1,14 @@
-import { createNotExistsFolderInPath, createPathJoin, checkFile } from '../../libs/path/index.js';
-import { readFileSync } from '../files/index.js'
-import { factoryCard } from '../factory/factoryCard.js'
+//import { createNotExistsFolderInPath, createPathJoin, checkFile } from '../../libs/path/index.js';
+//import { readFileSync } from '../files/index.js'
+
+import { scenarioCreateListCards } from '../scenario/index.js'
 import { emitArr } from '../../libs/emmiter/emitArr.js'
-import { commandGetDataFromJSONfile, commandCreatePathSaveForCards, commandCreateListCards } from '../command/index.js'//scenario->command
+
 
 // есть сценарий
 export const saveData = (localPathJSON, localFolderSave, isRewrite) => {
-    // COMMAND 1
-    // get data from file
-    const data = commandGetDataFromJSONfile(localPathJSON);
-    // commandCheck(data,'err path');
-    if (!data) { return console.log('Err path or data JSON file'); }
-    // console.log(data);
-    //    process.exit(1)
 
-
-    // COMMAND 2
-    const dataPathSave = commandCreatePathSaveForCards(localFolderSave);
-    // scenarioRun({name,params,'err mess','ok mess'});
-    // checkScenario(bool,'err mess');
-    if (!dataPathSave) { return console.log('not create path'); }
-    //+console.log(dataPathSave);
-
-
-    // command 3
-    // create listCards
-    const lists = commandCreateListCards(data, factoryCard);
-    if (!lists) { return console.log('not create lists'); }
-    // console.log(lists);
-
+    const lists = scenarioCreateListCards({ localPathJSON, localFolderSave });
 
     // commands 4
     // emit view
