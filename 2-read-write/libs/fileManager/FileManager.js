@@ -44,7 +44,7 @@ export class FileManager extends EventEmmiter {
                 if (error) {  // если ошибка
                     return console.log(error);
                 }
-                console.log(`Файл ${pathFile} успешно записан`);
+                console.log(`Файл ${fileName} - успешно записан`);
             });
         }
 

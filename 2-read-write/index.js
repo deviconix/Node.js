@@ -4,6 +4,7 @@ import { saveData } from './app/scenario/index.js'
 const PATH_JSON_LOCAL = 'data/2-read-write-users.json';
 const PATH_SAVE_LOCAL = 'data/out';
 const FLAG_REWRITE = false;
+//const FLAG_REWRITE = true;
 
 // main
 //const scenarioSaveData = 
