@@ -1,6 +1,6 @@
 import { commandGetDataFromJSONfile, commandCreatePathSaveForCards, commandCreateListCards } from '../command/index.js';//scenario->command
 import { factoryCard } from '../factory/factoryCard.js';
-
+import { exitScenario } from '../helper/exitScenario.js'
 
 export const scenarioCreateListCards = (param) => {
     const { localPathJSON, localFolderSave } = param;
