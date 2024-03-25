@@ -1,5 +1,5 @@
 import { createPathJoin, checkFile } from '../../libs/path/index.js';
-import { readFileSync } from '../files/index.js'
+import { readFileSync } from '../../libs/fileManager/readFileSync.js';
 
 
 
